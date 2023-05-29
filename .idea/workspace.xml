@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_diff_2k.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_disp_2k.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_rough_2k.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/3December2020_Day20_Kevin_v1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/Eye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minion_Base.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minion_Pants_2_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minon_Pants_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/TexturesCom_Fabric_Denim_1K_albedo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/TexturesCom_Fabric_Denim_1K_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/minion.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion/minion.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/cuerpo kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/cuerpo kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin2.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin2.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/ojo kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/ojo kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/peto kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/peto kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/pie kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/minion2/pie kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/stall/stall.blend" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/stall/stall.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/model/stall/stallTexture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/scene.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
