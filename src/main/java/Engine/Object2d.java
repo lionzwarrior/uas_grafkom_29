@@ -24,8 +24,6 @@ public class Object2d extends ShaderProgram {
     int tbo;
     Vector4f color;
     UniformsMap uniformsMap;
-    List<Vector3f> verticesColor;
-    int vboColor;
     List<Vector3f> curve = new ArrayList<>();
     public Matrix4f model;
     public Vector3f currentPosition;
@@ -68,13 +66,6 @@ public class Object2d extends ShaderProgram {
         uniformsMap.createUniform("viewPos");
         model = new Matrix4f().scale(1, 1, 1);
         childObject = new ArrayList<>();
-    }
-
-    public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, List<Vector3f> verticesColor) {
-        super(shaderModuleDataList);
-        this.vertices = vertices;
-        this.verticesColor = verticesColor;
-        setupVAOVBOWithVerticesColor();
     }
 
     public Object2d(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, String filename) {
@@ -138,45 +129,6 @@ public class Object2d extends ShaderProgram {
         normalsArray.add(new Vector3f(currentNorm.x, currentNorm.y, currentNorm.z));
     }
 
-    public void drawSetupNBOTBO(Camera camera, Projection projection) {
-        bind();
-        uniformsMap.setUniform("uni_color", color);
-        uniformsMap.setUniform("model", model);
-        uniformsMap.setUniform("view", camera.getViewMatrix());
-        uniformsMap.setUniform("projection", projection.getProjMatrix());
-
-        // Bind VBO
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
-
-        // Bind NBO
-        glEnableVertexAttribArray(1);
-        glBindBuffer(GL_ARRAY_BUFFER, nbo);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
-
-        // Bind texture coordinates
-        glEnableVertexAttribArray(2);
-        glBindBuffer(GL_ARRAY_BUFFER, tbo);
-        glVertexAttribPointer(2, 2, GL_FLOAT, false, 0, 0);
-
-        uniformsMap.setUniform("lightColor", new Vector3f(2.0f, 2.0f, 0.0f));
-        uniformsMap.setUniform("lightPos", new Vector3f(1.0f, 2.0f, 1.0f));
-        uniformsMap.setUniform("viewPos", camera.getPosition());
-    }
-
-    public void bindTexture(Texture texture) {
-        glBindTexture(GL_TEXTURE_2D, texture.getId());
-        glEnableVertexAttribArray(2);
-        glBindBuffer(GL_ARRAY_BUFFER, tbo);
-        glVertexAttribPointer(2, 2, GL_FLOAT, false, 0, 0);
-    }
-
-    public void unbindTexture() {
-        glBindTexture(GL_TEXTURE_2D, 0);
-        glDisableVertexAttribArray(2);
-    }
-
     public void setupVAOVBO() {
         // set vao
         vao = glGenVertexArrays();
@@ -187,24 +139,6 @@ public class Object2d extends ShaderProgram {
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         // mengirim vertices ke shader
         glBufferData(GL_ARRAY_BUFFER, Utils.listoFloat(vertices), GL_STATIC_DRAW);
-    }
-
-    public void setupVAOVBOWithVerticesColor() {
-        // set vao
-        vao = glGenVertexArrays();
-        glBindVertexArray(vao);
-
-        // set vbo
-        vbo = glGenBuffers();
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        // mengirim vertices ke shader
-        glBufferData(GL_ARRAY_BUFFER, Utils.listoFloat(vertices), GL_STATIC_DRAW);
-
-        // set vboColor
-        vboColor = glGenBuffers();
-        glBindBuffer(GL_ARRAY_BUFFER, vboColor);
-        // mengirim vertices ke shader
-        glBufferData(GL_ARRAY_BUFFER, Utils.listoFloat(verticesColor), GL_STATIC_DRAW);
     }
 
     public void setupVAOVBONBO() {
@@ -269,16 +203,6 @@ public class Object2d extends ShaderProgram {
         uniformsMap.createUniform("lightPos");
     }
 
-    public void drawSetup() {
-        bind();
-        uniformsMap.setUniform("uni_color", color);
-        uniformsMap.setUniform("model", model);
-        // bind VBO
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
-    }
-
     public void drawSetup(Camera camera, Projection projection) {
         bind();
         uniformsMap.setUniform("uni_color", color);
@@ -291,19 +215,7 @@ public class Object2d extends ShaderProgram {
         glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
     }
 
-    public void drawSetupWithVerticesColor() {
-        bind();
-        // bind VBO
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
-        // bind VBOColor
-        glEnableVertexAttribArray(1);
-        glBindBuffer(GL_ARRAY_BUFFER, vboColor);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
-    }
-
-    public void drawSetupNBO(Camera camera, Projection projection) {
+    public void drawSetupNBOIBO(Camera camera, Projection projection) {
         bind();
         uniformsMap.setUniform("uni_color", color);
         uniformsMap.setUniform("model", model);
@@ -329,22 +241,8 @@ public class Object2d extends ShaderProgram {
         uniformsMap.setUniform("viewPos", camera.getPosition());
     }
 
-    public void draw() {
-        drawSetup();
-        // Draw the vertices
-        glLineWidth(0);
-        glPointSize(0);
-        // GL_TRIANGLES
-        // GL_LINE_LOOP
-        // GL_LINE_STRIP
-        // GL_LINES
-        // GL_POINTS
-        // GL_TRIANGLE_FAN
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-    }
-
     public void draw(Camera camera, Projection projection) {
-        drawSetupNBO(camera, projection);
+        drawSetupNBOIBO(camera, projection);
         // Draw the vertices
         glLineWidth(0);
         glPointSize(0);
@@ -355,67 +253,11 @@ public class Object2d extends ShaderProgram {
         // GL_POINTS
         // GL_TRIANGLE_FAN
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-
 //        glDrawArrays(GL_POLYGON, 0, indices.size());
     }
 
-    public void drawPolygon() {
-        drawSetup();
-        // Draw the vertices
-        glLineWidth(10);
-        glPointSize(10);
-        // GL_TRIANGLES
-        // GL_LINE_LOOP
-        // GL_LINE_STRIP
-        // GL_LINES
-        // GL_POINTS
-        // GL_TRIANGLE_FAN
-        glDrawArrays(GL_POLYGON, 0, vertices.size());
-    }
-
-    public void drawLine() {
-        drawSetup();
-        // Draw the vertices
-        glLineWidth(1);
-        glPointSize(0);
-        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
-    }
-
-    public void drawLine(Camera camera, Projection projection) {
-        drawSetup(camera, projection);
-        // Draw the vertices
-        glLineWidth(1);
-        glPointSize(0);
-        glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
-    }
-
-    public void drawLineForCurve() {
-        drawSetup();
-        // Draw the vertices
-        glLineWidth(1);
-        glPointSize(0);
-        glDrawArrays(GL_LINE_STRIP, 0, curve.size());
-    }
-
-    public void drawWithChild() {
-        drawSetup();
-        // Draw the vertices
-        glLineWidth(0);
-        glPointSize(0);
-        // GL_TRIANGLES
-        // GL_LINE_LOOP
-        // GL_LINE_STRIP
-        // GL_LINES
-        // GL_POINTS
-        // GL_TRIANGLE_FAN
-        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
-        for (Object2d child : childObject) {
-            child.drawLine();
-        }
-    }
-
     public void drawWithChild(Camera camera, Projection projection) {
-        drawSetupNBO(camera, projection);
+        drawSetup(camera, projection);
         // Draw the vertices
         glLineWidth(0);
         glPointSize(0);
@@ -429,30 +271,6 @@ public class Object2d extends ShaderProgram {
         for (Object2d child : childObject) {
             child.draw(camera, projection);
         }
-    }
-
-    public void addVertices(Vector3f newVector) {
-        vertices.add(newVector);
-        setupVAOVBO();
-    }
-
-    public void addVerticesForCurve(Vector3f newVector) {
-        vertices.add(newVector);
-        createCurve();
-    }
-
-    public void drawWithVerticesColor() {
-        drawSetupWithVerticesColor();
-        // Draw the vertices
-        glLineWidth(10);
-        glPointSize(10);
-        // GL_TRIANGLES
-        // GL_LINE_LOOP
-        // GL_LINE_STRIP
-        // GL_LINES
-        // GL_POINTS
-        // GL_TRIANGLE_FAN
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
     }
 
     public void setupVAOVBOForCurve() {
@@ -480,13 +298,10 @@ public class Object2d extends ShaderProgram {
         int size = vertices.size() - 1;
         Vector3f result = new Vector3f(0.0f, 0.0f, 0.0f);
         for (Vector3f vertice : vertices) {
-//            System.out.println(combinations(size, i));
             result.x += combinations(size, i) * Math.pow((1 - t), size - i) * vertice.x * Math.pow(t, i);
-//            System.out.println("(1-" + t + ")^" + (size-i) + " * " + vertice.x + " * " + t + "^" + i);
             result.y += combinations(size, i) * Math.pow((1 - t), size - i) * vertice.y * Math.pow(t, i);
             i += 1;
         }
-//        System.out.println(result.x + " " + result.y);
         return result;
     }
 
@@ -550,7 +365,6 @@ public class Object2d extends ShaderProgram {
         vertices = temp;
     }
 
-    // to make minion
     public void createCylinder() {
         vertices.clear();
         ArrayList<Vector3f> temp = new ArrayList<>();
