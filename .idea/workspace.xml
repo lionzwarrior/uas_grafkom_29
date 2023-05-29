@@ -4,9 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_diff_2k.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_disp_2k.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/brown_mud_02_rough_2k.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/ground/ground.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/3December2020_Day20_Kevin_v1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/Eye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minion_Base.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minion_Pants_2_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/Minon_Pants_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/TexturesCom_Fabric_Denim_1K_albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/TexturesCom_Fabric_Denim_1K_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/minion.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion/minion.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/cuerpo kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/cuerpo kevin.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin minion je.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin2.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/kevin2.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/ojo kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/ojo kevin.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/peto kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/peto kevin.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/pie kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/minion2/pie kevin.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/stall/stall.blend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/stall/stall.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/model/stall/stallTexture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/shaders/scene.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,15 +56,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -57,6 +89,14 @@
       <option name="presentableId" value="Default" />
       <updated>1685368243994</updated>
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1685369590332</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685369590332</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,5 +109,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
