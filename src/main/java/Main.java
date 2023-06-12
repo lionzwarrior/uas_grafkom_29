@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.glClearColor;
@@ -34,7 +35,7 @@ public class Main {
     public void init() throws IOException {
         window.init();
         GL.createCapabilities();
-        camera.setPosition(0, 0.5f, 2.0f);
+        camera.setPosition(0, 0f, 2.0f);
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
 //        objectObj.add(new Object2d(Arrays.asList(
@@ -60,72 +61,58 @@ public class Main {
 
     public void input(){
         float move = 0.01f;
+        List<Float> temp = objectObj.get(0).getCenterPoint();
+        objectObj.get(0).updateCenterPoint();
+        float distance = 2f;
         if (window.isKeyPressed(GLFW_KEY_W)) {
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(-derajatCam_r));
-            camera.moveBackwards(1.7f);
-
-            objectObj.get(0).translateObject(0.0f, 0.0f, -move);
-            camera.moveForward(move);
-
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(derajatCam_r));
-            camera.moveBackwards(1.7f);
+            objectObj.get(0).translateObject(0f, 0f, -move);
+            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+            camera.moveBackwards(distance);
         }
-        else if (window.isKeyPressed(GLFW_KEY_S)){
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(-derajatCam_r));
-            camera.moveBackwards(1.7f);
+        if (window.isKeyPressed(GLFW_KEY_A)) {
+            objectObj.get(0).translateObject(-move, 0f, 0f);
+            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+            camera.moveBackwards(distance);
+        }
+        if (window.isKeyPressed(GLFW_KEY_S)) {
+            objectObj.get(0).translateObject(0f, 0f, move);
+            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+            camera.moveBackwards(distance);
+        }
+        if (window.isKeyPressed(GLFW_KEY_D)) {
+            objectObj.get(0).translateObject(move, 0f, 0f);
+            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+            camera.moveBackwards(distance);
+        }
 
-            objectObj.get(0).translateObject(0.0f, 0.0f, move);
-            camera.moveBackwards(move);
+        if (window.isKeyPressed(GLFW_KEY_UP)) {
+            camera.moveForward(distance);
+            camera.addRotation(-0.01f, 0f);
+            camera.moveBackwards(distance);
+        }
+        if (window.isKeyPressed(GLFW_KEY_DOWN)) {
+            camera.moveForward(distance);
+            camera.addRotation(0.01f, 0f);
+            camera.moveBackwards(distance);
+        }
+        if (window.isKeyPressed(GLFW_KEY_LEFT)) {
+            camera.moveForward(distance);
+            camera.addRotation(0f, -0.01f);
+            camera.moveBackwards(distance);
+        }
+        if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
+            camera.moveForward(distance);
+            camera.addRotation(0f, 0.01f);
+            camera.moveBackwards(distance);
+        }
 
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(derajatCam_r));
-            camera.moveBackwards(1.7f);
-        }
-        else if (window.isKeyPressed(GLFW_KEY_D)){
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(-derajatCam_r));
-            camera.moveBackwards(1.7f);
-
-            objectObj.get(0).translateObject(move, 0.0f, 0.0f);
-            camera.moveRight(move);
-
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(derajatCam_r));
-            camera.moveBackwards(1.7f);
-        }
-        else if (window.isKeyPressed(GLFW_KEY_A)){
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(-derajatCam_r));
-            camera.moveBackwards(1.7f);
-
-            objectObj.get(0).translateObject(-move, 0.0f, 0.0f);
-            camera.moveLeft(move);
-
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(derajatCam_r));
-            camera.moveBackwards(1.7f);
-        }
-        if(window.isKeyPressed(GLFW_KEY_UP)){
-            camera.moveUp(move);
-            objectObj.get(0).translateObject(0.0f, move, 0.0f);
-        }
-        else if(window.isKeyPressed(GLFW_KEY_DOWN)){
-            camera.moveDown(move);
-            objectObj.get(0).translateObject(0.0f, -move, 0.0f);
-        }
-        else if(window.isKeyPressed(GLFW_KEY_LEFT)){
-            camera.addRotation(0.0f,0.05f);
-        }
-        else if(window.isKeyPressed(GLFW_KEY_RIGHT)){
-            camera.addRotation(0.0f,-0.05f);
-        }
-        if (window.getMouseInput().isRightButtonPressed()){
+        if (window.getMouseInput().isRightButtonPressed()) {
+            camera.moveForward(distance);
             Vector2f displVec = window.getMouseInput().getDisplVec();
-            camera.addRotation((float) Math.toRadians(displVec.x * 0.1f) , (float) Math.toRadians(displVec.y * 0.1f));
+            camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
+            camera.moveBackwards(distance);
         }
+
         if (window.getMouseInput().getScroll().y != 0){
             projection.setFOV(projection.getFOV()-(window.getMouseInput().getScroll().y * 0.1f));
             window.getMouseInput().setScroll(new Vector2f());
