@@ -33,11 +33,7 @@ public class Main {
     public void init() throws IOException {
         window.init();
         GL.createCapabilities();
-<<<<<<< Updated upstream
         camera.setPosition(0, 0f, distance);
-=======
-        camera.setPosition(0, 0f, 1.0f);
->>>>>>> Stashed changes
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
 //        objectObj.add(new Object2d(Arrays.asList(
@@ -65,10 +61,6 @@ public class Main {
         float move = 0.01f;
         List<Float> temp = objectObj.get(0).getCenterPoint();
         objectObj.get(0).updateCenterPoint();
-<<<<<<< Updated upstream
-=======
-        float distance = 1f;
->>>>>>> Stashed changes
         if (window.isKeyPressed(GLFW_KEY_W)) {
             objectObj.get(0).translateObject(0f, 0f, -move);
             camera.setPosition(temp.get(0), temp.get(1), temp.get(2));

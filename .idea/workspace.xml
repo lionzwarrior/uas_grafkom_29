@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-    </list>
-    <list id="e726a96f-a44b-4caf-8edb-925eae334d49" name="Changes by Raphael EV" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="8456157f-c6e1-44d6-9935-5d171a964ab7" name="Changes" comment="init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +17,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QTCZy6lrzInNHnCL8iswelZg1t" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -78,7 +72,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
