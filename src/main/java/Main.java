@@ -18,9 +18,7 @@ public class Main {
     ArrayList<Object> objectObj = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
-    float move2 = 1f;
-    boolean press_r = false;
-    float derajatCam_r = 0f;
+    float distance = 1f;
 
     public void run() throws IOException {
 
@@ -35,7 +33,7 @@ public class Main {
     public void init() throws IOException {
         window.init();
         GL.createCapabilities();
-        camera.setPosition(0, 0f, 2.0f);
+        camera.setPosition(0, 0f, distance);
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
 //        objectObj.add(new Object2d(Arrays.asList(
@@ -63,7 +61,6 @@ public class Main {
         float move = 0.01f;
         List<Float> temp = objectObj.get(0).getCenterPoint();
         objectObj.get(0).updateCenterPoint();
-        float distance = 2f;
         if (window.isKeyPressed(GLFW_KEY_W)) {
             objectObj.get(0).translateObject(0f, 0f, -move);
             camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
@@ -116,31 +113,6 @@ public class Main {
         if (window.getMouseInput().getScroll().y != 0){
             projection.setFOV(projection.getFOV()-(window.getMouseInput().getScroll().y * 0.1f));
             window.getMouseInput().setScroll(new Vector2f());
-        }
-
-
-        if (window.isKeyPressed(GLFW_KEY_R)){
-            press_r = true;
-        }
-        if (press_r){
-            float posX = camera.getPosition().x;
-            float posY = camera.getPosition().y;
-            float posZ = camera.getPosition().z;
-            camera.setPosition(-posX,-posY,-posZ);
-            camera.addRotation(0.0f,(float) Math.toRadians(move2));
-            camera.setPosition(posX,posY,posZ);
-            derajatCam_r += move2;
-            if(derajatCam_r >= 360.0){
-                press_r = false;
-                derajatCam_r = 0.0f;
-            }
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_Q)){
-            camera.moveForward(1.7f);
-            camera.addRotation(0, (float)Math.toRadians(-1));
-            derajatCam_r+=-1;
-            camera.moveBackwards(1.7f);
         }
     }
 
