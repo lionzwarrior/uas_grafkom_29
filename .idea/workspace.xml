@@ -4,68 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8456157f-c6e1-44d6-9935-5d171a964ab7" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/Texture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/draw_circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garis_bresenham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/brown_mud_02_diff_2k.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/brown_mud_02_disp_2k.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/brown_mud_02_rough_2k.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/ground.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/ground.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ground/ground.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/kevin-minion.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/kevin-the-minion-3december2020-day20.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/3December2020_Day20_Kevin_v1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/Eye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/Minion_Base.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/Minion_Pants_2_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/Minon_Pants_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/TexturesCom_Fabric_Denim_1K_albedo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/TexturesCom_Fabric_Denim_1K_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/minion.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion/minion.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/cuerpo kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/cuerpo kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/kevin minion je.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/kevin minion je.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/kevin minion je.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/kevin2.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/kevin2.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/ojo kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/ojo kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/peto kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/peto kevin.tga" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/pie kevin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/minion2/pie kevin.tga" afterDir="false" />
+    <list default="true" id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/MouseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/MouseInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object2d.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainProject.java" afterDir="false" />
+    </list>
+    <list id="e726a96f-a44b-4caf-8edb-925eae334d49" name="Changes by Raphael EV" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/UniformsMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="shader-template" />
-        <option value="vs-template" />
-        <option value="fs-template" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,46 +24,18 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2LfoRnO3SGYR67dggWTbjb57ZQg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2QTCZy6lrzInNHnCL8iswelZg1t" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-    &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Raphael/Universitas Kristen Petra/Mata Kuliah/Semester 4/Grafika Komputer/UAS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
-    }
-    }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Raphael\Universitas Kristen Petra\Mata Kuliah\Semester 4\Grafika Komputer\Grafkom2233\Grafkom2233\resources\shaders" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Engine" />
-    </key>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="BresenhamLine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BresenhamLine" />
-      <module name="Grafkom2223" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="uas_grafkom_29" />
@@ -120,75 +43,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainProject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainProject" />
-      <module name="Grafkom2223" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="draw_circle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="draw_circle" />
-      <module name="Grafkom2223" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="garis_bresenham" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="garis_bresenham" />
-      <module name="Grafkom2223" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainProject" />
-        <item itemvalue="Application.garis_bresenham" />
-        <item itemvalue="Application.draw_circle" />
-        <item itemvalue="Application.BresenhamLine" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8456157f-c6e1-44d6-9935-5d171a964ab7" name="Changes" comment="" />
-      <created>1676271494305</created>
+      <changelist id="a9cf18ad-59f1-4536-ae66-ba4c0c3aa23f" name="Changes" comment="" />
+      <created>1685368243994</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676271494305</updated>
+      <updated>1685368243994</updated>
     </task>
-    <task id="LOCAL-00001" summary="Final for UTS Project">
-      <created>1681724031909</created>
+    <task id="LOCAL-00001" summary="init">
+      <created>1685369590332</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1681724031910</updated>
+      <updated>1685369590332</updated>
     </task>
-    <task id="LOCAL-00002" summary="Final for UTS Project">
-      <created>1681724291950</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681724291950</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Final for UTS Project">
-      <created>1681795141803</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1681795141803</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Final for UTS Project">
-      <created>1682414632443</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1682414632443</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,10 +78,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Final for UTS Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final for UTS Project" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
