@@ -20,7 +20,7 @@ public class Main {
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
     float angle = 0f;
-    float change = (float)Math.toRadians(1f);
+    float rotation = (float)Math.toRadians(1f);
     float move = 0.01f;
     List<Float> temp;
 
@@ -64,24 +64,24 @@ public class Main {
             camera.moveBackwards(distance);
             if (angle > (float)Math.toRadians(0) && angle < (float)Math.toRadians(180)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(180) && angle < (float)Math.toRadians(360)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-180) && angle < (float)Math.toRadians(0)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-360) && angle < (float)Math.toRadians(-180)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             }
         }
 
@@ -91,29 +91,29 @@ public class Main {
             camera.moveBackwards(distance);
             if (angle > (float)Math.toRadians(90) && angle < (float)Math.toRadians(270)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(270) && angle < (float)Math.toRadians(450)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-90) && angle < (float)Math.toRadians(90)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-270) && angle < (float)Math.toRadians(-90)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(-360) && angle < (float)Math.toRadians(-270)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             }
         }
 
@@ -123,24 +123,24 @@ public class Main {
             camera.moveBackwards(distance);
             if (angle > (float)Math.toRadians(180) && angle < (float)Math.toRadians(360)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(0) && angle < (float)Math.toRadians(180)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-360) && angle < (float)Math.toRadians(-180)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-180) && angle < (float)Math.toRadians(0)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             }
         }
 
@@ -150,29 +150,29 @@ public class Main {
             camera.moveBackwards(distance);
             if (angle > (float)Math.toRadians(-90) && angle < (float)Math.toRadians(90)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(90) && angle < (float)Math.toRadians(270)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(270) && angle < (float)Math.toRadians(360)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             } else if (angle > (float)Math.toRadians(-270) && angle < (float)Math.toRadians(-90)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle + change;
+                angle = angle + rotation;
             } else if (angle > (float)Math.toRadians(-450) && angle < (float)Math.toRadians(-270)){
                 objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(0).rotateObject(-change, 0f, 1f, 0f);
+                objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
                 objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                angle = angle - change;
+                angle = angle - rotation;
             }
         }
 
