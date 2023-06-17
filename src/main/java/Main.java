@@ -64,7 +64,6 @@ public class Main {
         List<Float> temp = objectObj.get(0).getCenterPoint();
         float change = (float)Math.toRadians(1f);
         angle = angle % (float)Math.toRadians(360);
-        System.out.println(angle);
 
         if (window.isKeyPressed(GLFW_KEY_W)) {
             objectObj.get(0).translateObject(0f, 0f, -move);
