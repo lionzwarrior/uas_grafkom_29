@@ -102,6 +102,22 @@ public class Object extends ShaderProgram{
         setupVAOVBOWithVerticesColor();
     }
 
+    public void createEllipsoid() {
+        vertices.clear();
+        ArrayList<Vector3f> temp = new ArrayList<>();
+
+        for (double v = -Math.PI / 2; v <= Math.PI / 2; v += Math.PI / 60) {
+            for (double u = -Math.PI; u <= Math.PI; u += Math.PI / 60) {
+                float x = 0.5f * (float) (Math.cos(v) * Math.cos(u));
+                float y = 0.5f * (float) (Math.cos(v) * Math.sin(u));
+                float z = 0.5f * (float) (Math.sin(v));
+                temp.add(new Vector3f(x, y, z));
+            }
+        }
+        vertices = temp;
+        setupVAOVBO();
+    }
+
     public void setupVAOVBO(){
         //set vao
         vao = glGenVertexArrays();
@@ -214,6 +230,28 @@ public class Object extends ShaderProgram{
             child.draw(camera,projection);
         }
     }
+
+    public void drawEllips(Camera camera, Projection projection){
+        drawSetup(camera, projection);
+        // Draw the vertices
+        //optional
+        glLineWidth(10); //ketebalan garis
+        glPointSize(10); //besar kecil vertex
+        //wajib
+        //GL_LINES
+        //GL_LINE_STRIP
+        //GL_LINE_LOOP
+        //GL_TRIANGLES
+        //GL_TRIANGLE_FAN
+        //GL_POINT
+        glDrawArrays(GL_TRIANGLE_FAN,
+                0,
+                vertices.size());
+        for(Object child:childObject){
+            child.draw(camera,projection);
+        }
+    }
+
     public void drawWithVerticesColor(){
         drawSetupWithVerticesColor();
         // Draw the vertices

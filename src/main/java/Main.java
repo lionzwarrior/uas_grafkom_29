@@ -16,6 +16,8 @@ import static org.lwjgl.opengl.GL30.*;
 public class Main {
     private Window window = new Window(1080, 1080, "Hello World");
     ArrayList<Object> objectObj = new ArrayList<>();
+    ArrayList<Object> objectGround = new ArrayList<>();
+    ArrayList<Object> objectEllips = new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -41,6 +43,7 @@ public class Main {
         camera.setPosition(0, 0f, distance);
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
+        // mobil (ObjectObj(0))
         objectObj.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -51,6 +54,31 @@ public class Main {
                 "resources/model/mobil/mobil.obj"
         ));
         objectObj.get(0).scaleObject(0.1f,0.1f,0.1f);
+
+        // ground (objectGround(0))
+        objectGround.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.01f,0.59f,0.17f,1.0f),
+                "resources/model/track/Terrain_Grass_Flat_1x1.obj"
+        ));
+        objectGround.get(0).scaleObject(20f ,1f, 20f);
+        objectGround.get(0).translateObject(0f, -0.565f, 0f);
+
+        // matahari (objectEllips(0))
+        objectEllips.add(new Object(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.01f,0.59f,0.17f,1.0f)
+        ));
+        objectEllips.get(0).createEllipsoid();
+        objectEllips.get(0).translateObject(0f,3f,0f);
     }
 
 
@@ -208,6 +236,11 @@ public class Main {
             projection.setFOV(projection.getFOV()-(window.getMouseInput().getScroll().y * 0.1f));
             window.getMouseInput().setScroll(new Vector2f());
         }
+
+        if(window.isKeyPressed(GLFW_KEY_SPACE)){
+            camera.moveUp(move);
+            objectObj.get(0).translateObject(0.0f, move, 0.0f);
+        }
     }
 
     public void loop() {
@@ -221,6 +254,14 @@ public class Main {
             // code here
             for (Object object: objectObj) {
                 object.draw(camera, projection);
+            }
+
+            for (Object object: objectGround) {
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectEllips) {
+                object.drawEllips(camera, projection);
             }
 
             // Restore state
