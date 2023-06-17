@@ -175,7 +175,7 @@ public class Main {
                 angle = angle - change;
             }
         }
-        
+
         if (window.isKeyPressed(GLFW_KEY_UP)) {
             camera.moveForward(distance);
             camera.addRotation(-0.01f, 0f);
