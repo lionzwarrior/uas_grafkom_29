@@ -20,6 +20,9 @@ public class Main {
     ArrayList<Object> objectEllips = new ArrayList<>();
     ArrayList<Object> objectTrack = new ArrayList<>();
     ArrayList<Object> objectOuterWall = new ArrayList<>();
+    ArrayList<Object> objectFinishLine = new ArrayList<>();
+    ArrayList<Object> objectLighthouse = new ArrayList<>();
+    ArrayList<Object> objectPagar= new ArrayList<>();
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
     float distance = 1f;
@@ -56,6 +59,19 @@ public class Main {
                 "resources/model/mobil/mobil.obj"
         ));
         objectObj.get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectObj.get(0).translateObject(-0.2f, 0f, 0f);
+
+        objectObj.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.0f,0.0f,1.0f,1.0f),
+                "resources/model/mobil/mobil.obj"
+        ));
+        objectObj.get(1).scaleObject(0.1f,0.1f,0.1f);
+        objectObj.get(1).translateObject(0.2f, 0f, 0f);
 
         objectObj.add(new Model(
                 Arrays.asList(
@@ -82,14 +98,27 @@ public class Main {
         objectGround.get(0).scaleObject(20f ,1f, 20f);
         objectGround.get(0).translateObject(0f, -0.565f, 0f);
 
-        // matahari (objectEllips(0))
-        objectEllips.add(new Object(
+//        // matahari (objectEllips(0))
+//        objectEllips.add(new Object(
+//                Arrays.asList(
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+//                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+//                ),
+//                new ArrayList<>(),
+//                new Vector4f(0.01f,0.59f,0.17f,1.0f)
+//        ));
+//        objectEllips.get(0).createEllipsoid();
+//        objectEllips.get(0).translateObject(0f,3f,0f);
+
+        //Track
+        objectTrack.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.01f,0.59f,0.17f,1.0f)
+                new Vector4f(0.5f,0.5f,0.5f,1.0f),
+                "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
         objectEllips.get(0).createEllipsoid();
         objectEllips.get(0).translateObject(0f,3f,0f);
@@ -104,6 +133,8 @@ public class Main {
                 new Vector4f(0.5f,0.5f,0.5f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
+        objectTrack.get(0).translateObject(0f,-0.564f,0f);
+
         objectTrack.get(0).translateObject(0f,-0.564f,0f);
 
         objectTrack.get(0).getChildObject().add(new Model(
@@ -375,6 +406,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.9f,0.9f,0.9f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
 
         ));
@@ -391,6 +423,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.8f,0.f,0.f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
 
@@ -407,6 +440,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.9f,0.9f,0.9f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
 
@@ -424,6 +458,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.8f,0.f,0.f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
 
@@ -438,6 +473,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),new Vector4f(0.f,0.f,0.5f,1.0f),
+                new ArrayList<>(),new Vector4f(0.8f,0.f,0.f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
 
@@ -457,7 +493,6 @@ public class Main {
                 new Vector4f(0.f,0.f,0.5f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
-
         objectOuterWall.get(0).getChildObject().get(4).translateObject(-0.02f,7.77f,-0.7f);
         objectOuterWall.get(0).getChildObject().get(4).scaleObject(1.0f,1.0f,1.1f);
         objectOuterWall.get(0).getChildObject().get(4).rotateObject((float) Math.toRadians(90.0f),0f,0.0f,-1.0f);
@@ -471,7 +506,7 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.9f,0.9f,0.9f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
 
@@ -488,9 +523,11 @@ public class Main {
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
                 ),
                 new ArrayList<>(),
-                new Vector4f(0.f,0.f,0.5f,1.0f),
+                new Vector4f(0.9f,0.9f,0.9f,1.0f),
                 "resources/model/track/Terrain_Grass_Flat_1x1.obj"
         ));
+
+
 
         objectOuterWall.get(0).getChildObject().get(6).translateObject(-0.02f,-1.17f,0.302f);
         objectOuterWall.get(0).getChildObject().get(6).scaleObject(1.0f,1.0f,1.1f);
@@ -501,10 +538,129 @@ public class Main {
         objectTrack.get(0).translateObject(-1.5f, 0f, 3.5f);
 
         objectTrack.get(0).translateObject(0f, 1f, 0f);
-        objectObj.get(0).translateObject(0f, 1f, 0f);
-        objectObj.get(1).translateObject(0f, 1f, 0f);
+        objectObj.get(0).translateObject(-1.5f, 1f, 2.5f);
+        objectObj.get(1).translateObject(-1.5f, 1f, 2.5f);
         objectGround.get(0).translateObject(0f, 1f, 0f);
         objectOuterWall.get(0).translateObject(0f, 1f, 0f);
+
+        //lighthouse
+        //atap dan bagian merah
+        objectLighthouse.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.5f,0.f,0.f,1.0f),
+                "resources/model/track/lighthouse_part_1.obj"
+        ));
+        objectLighthouse.get(0).translateObject(-1.15f,8.88f,3.55f);
+        objectLighthouse.get(0).scaleObject(0.15f,0.15f,0.15f);
+
+        //kaki merah
+        objectLighthouse.get(0).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.5f,0.f,0.f,1.0f),
+                "resources/model/track/lighthouse_part_2.obj"
+        ));
+        objectLighthouse.get(0).getChildObject().get(0).translateObject(1.0f,7.0f,1.0f);
+        objectLighthouse.get(0).getChildObject().get(0).scaleObject(0.15f,0.15f,0.15f);
+
+
+        //bagian putih
+        objectLighthouse.get(0).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.7f,0.7f,0.7f,1.0f),
+                "resources/model/track/lighthouse_part_3.obj"
+        ));
+        objectLighthouse.get(0).getChildObject().get(1).translateObject(-0.1f,6.9f,3.6f);
+        objectLighthouse.get(0).getChildObject().get(1).scaleObject(0.15f,0.15f,0.15f);
+
+
+        //lampu
+        objectLighthouse.get(0).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(1.0f,1.0f,0.0f,1.0f),
+                "resources/model/track/lighthouse_part_lights.obj"
+        ));
+        objectLighthouse.get(0).getChildObject().get(2).translateObject(0.1f,2.5f,4.0f);
+        objectLighthouse.get(0).getChildObject().get(2).scaleObject(0.15f,0.2f,0.15f);
+
+
+        //pagar1
+        objectPagar.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.2f,0.2f,0.2f,1.0f),
+                "resources/model/track/Prop_Decorative_Fence_Curve_5x6.obj"
+        ));
+        objectPagar.get(0).translateObject(-2.5f,9.3f,9.5f);
+        objectPagar.get(0).scaleObject(0.1f,0.1f,0.1f);
+
+
+        //pagar2
+        objectPagar.get(0).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.2f,0.2f,0.2f,1.0f),
+                "resources/model/track/Prop_Decorative_Fence_Curve_5x6.obj"
+        ));
+        objectPagar.get(0).getChildObject().get(0).translateObject(-8.0f,9.3f,1.0f);
+        objectPagar.get(0).getChildObject().get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectPagar.get(0).getChildObject().get(0).rotateObject((float)Math.toRadians(120.0f),0.f,1.0f,0.f);
+
+
+        //pagar3
+        objectPagar.get(0).getChildObject().add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.2f,0.2f,0.2f,1.0f),
+                "resources/model/track/Prop_Decorative_Fence_Curve_5x6.obj"
+        ));
+        objectPagar.get(0).getChildObject().get(1).translateObject(2.0f,9.3f,0.f);
+        objectPagar.get(0).getChildObject().get(1).scaleObject(0.1f,0.1f,0.1f);
+        objectPagar.get(0).getChildObject().get(1).rotateObject((float)Math.toRadians(-128.0f),0.f,1.0f,0.f);
+
+
+        //finish line
+        objectFinishLine.add(new Model(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
+                        new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER)
+                ),
+                new ArrayList<>(),
+                new Vector4f(0.f,0.f,0.f,1.0f),
+                "resources/model/track/finish_line.obj"
+        ));
+        objectFinishLine.get(0).translateObject(-2.5f,9.3f,9.5f);
+        objectFinishLine.get(0).scaleObject(0.1f,0.1f,0.1f);
+
+
+
+
+
+
     }
 
     public void input(){
@@ -701,6 +857,18 @@ public class Main {
             }
 
             for (Object object: objectOuterWall){
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectLighthouse){
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectPagar){
+                object.draw(camera, projection);
+            }
+
+            for (Object object: objectFinishLine){
                 object.draw(camera, projection);
             }
 
