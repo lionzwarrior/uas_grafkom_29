@@ -192,16 +192,14 @@ public class Object extends ShaderProgram{
         }
 
         // spotLight
-        uniformsMap.setUniform("spotLight.position", new Vector3f(0, 0, 0));
-        uniformsMap.setUniform("spotLight.direction", new Vector3f(0, 0, 0));
+        uniformsMap.setUniform("spotLight.position", camera.getPosition());
+        uniformsMap.setUniform("spotLight.direction", camera.getDirection());
         uniformsMap.setUniform("spotLight.ambient", new Vector3f(0.0f, 0.0f ,0.0f));
         uniformsMap.setUniform("spotLight.diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
         uniformsMap.setUniform("spotLight.specular", new Vector3f(1.0f, 1.0f, 1.0f));
         uniformsMap.setUniform("spotLight.constant", 1.0f);
         uniformsMap.setUniform("spotLight.linear", 0.09f);
         uniformsMap.setUniform("spotLight.quadratic", 0.032f);
-//        uniformsMap.setUniform("spotLight.cutOff", (float)Math.cos(Math.toRadians(30f)));
-//        uniformsMap.setUniform("spotLight.outerCutOff", (float)Math.cos(Math.toRadians(30f)));
         uniformsMap.setUniform("spotLight.cutOff", 0f);
         uniformsMap.setUniform("spotLight.outerCutOff", 0f);
 
