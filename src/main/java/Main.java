@@ -37,6 +37,7 @@ public class Main {
     int carPos2 = 0;
     boolean delay = false;
     int delayCounter = 0;
+    boolean start = false;
 
 
     public void run() throws IOException {
@@ -642,6 +643,10 @@ public class Main {
             delay = true;
         }
 
+        if (window.isKeyPressed(GLFW_KEY_G)){
+            start = true;
+        }
+
         if (window.isKeyPressed(GLFW_KEY_W)) {
             if (modeToggle == 2) {
                 camera.moveForward(move);
@@ -909,61 +914,63 @@ public class Main {
                 delay = false;
             }
 
-            if (carPos < 900) {
-                objectObj.get(1).translateObject(0f, 0f, -0.007f);
-                carPos++;
-            }
+            if (start){
+                if (carPos < 900) {
+                    objectObj.get(1).translateObject(0f, 0f, -0.007f);
+                    carPos++;
+                }
 
-            if (900 <= carPos && carPos < 990) {
-                List<Float> temp = objectObj.get(1).getCenterPoint();
-                objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-            }
+                if (900 <= carPos && carPos < 990) {
+                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
+                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                }
 
-            if (900 <= carPos && carPos < 1250) {
-                objectObj.get(1).translateObject(0.007f, 0f, 0f);
-                carPos++;
-            }
+                if (900 <= carPos && carPos < 1250) {
+                    objectObj.get(1).translateObject(0.007f, 0f, 0f);
+                    carPos++;
+                }
 
-            if (1250 <= carPos && carPos < 1340) {
-                List<Float> temp = objectObj.get(1).getCenterPoint();
-                objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-            }
+                if (1250 <= carPos && carPos < 1340) {
+                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
+                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                }
 
-            if (1250 <= carPos && carPos < 2330) {
-                objectObj.get(1).translateObject(0f, 0f, 0.007f);
-                carPos++;
-            }
+                if (1250 <= carPos && carPos < 2330) {
+                    objectObj.get(1).translateObject(0f, 0f, 0.007f);
+                    carPos++;
+                }
 
-            if (2330 <= carPos && carPos < 2420) {
-                List<Float> temp = objectObj.get(1).getCenterPoint();
-                objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-            }
+                if (2330 <= carPos && carPos < 2420) {
+                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
+                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                }
 
-            if (2330 <= carPos && carPos < 2680) {
-                objectObj.get(1).translateObject(-0.007f, 0f, 0f);
-                carPos++;
-            }
+                if (2330 <= carPos && carPos < 2680) {
+                    objectObj.get(1).translateObject(-0.007f, 0f, 0f);
+                    carPos++;
+                }
 
-            if (2680 <= carPos && carPos < 2770) {
-                List<Float> temp = objectObj.get(1).getCenterPoint();
-                objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
-                objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
-            }
+                if (2680 <= carPos && carPos < 2770) {
+                    List<Float> temp = objectObj.get(1).getCenterPoint();
+                    objectObj.get(1).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(1).rotateObject(-(float) Math.toRadians(1f), 0f, 1f, 0f);
+                    objectObj.get(1).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                }
 
-            if (2680 <= carPos && carPos < 2860) {
-                objectObj.get(1).translateObject(0f, 0f, -0.007f);
-                carPos++;
-            }
+                if (2680 <= carPos && carPos < 2860) {
+                    objectObj.get(1).translateObject(0f, 0f, -0.007f);
+                    carPos++;
+                }
 
-            if (carPos == 2860) {
-                carPos = 0;
+                if (carPos == 2860) {
+                    carPos = 0;
+                }
             }
 
             if (modeToggle > 0) {
