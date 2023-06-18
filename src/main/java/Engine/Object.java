@@ -25,6 +25,11 @@ public class Object extends ShaderProgram{
     public Matrix4f model;
     List<Object> childObject;
     List<Float> centerPoint;
+    boolean scene = true;
+
+    public void setScene(boolean scene) {
+        this.scene = scene;
+    }
 
     public List<Object> getChildObject() {
         return childObject;
@@ -104,7 +109,11 @@ public class Object extends ShaderProgram{
         uniformsMap.setUniform(
                 "projection", projection.getProjMatrix());
         uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f, -1.0f, -0.3f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f, 0.1f, 0.1f));
+        if(scene){
+            uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f, 0.1f, 0.1f));
+        } else {
+            uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.8f, 0.8f, 0.8f));
+        }
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f, 0.4f, 0.4f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f, 0.5f, 0.5f));
 
@@ -117,7 +126,11 @@ public class Object extends ShaderProgram{
 
         for(int i = 0; i < _pointLightPositions.length; i++){
             uniformsMap.setUniform("pointLight["+i+"].position", _pointLightPositions[i]);
-            uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.1f, 0.1f, 0.1f));
+            if(scene){
+                uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.1f, 0.1f, 0.1f));
+            } else {
+                uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.4f, 0.4f, 0.4f));
+            }
             uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 0.8f));
             uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(0.5f, 0.5f, 0.5f));
             uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);

@@ -38,6 +38,9 @@ public class Main {
     boolean delay = false;
     int delayCounter = 0;
     boolean start = false;
+    boolean malam = true;
+    boolean delay2 = false;
+    int delayCounter2 = 0;
 
 
     public void run() throws IOException {
@@ -636,6 +639,59 @@ public class Main {
         temp = objectObj.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 
+        if (window.isKeyPressed(GLFW_KEY_L) && !delay2){
+            malam = !malam;
+            for (Object object: objectObj){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectGround){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectLighthouse){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectPagar){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectOuterWall){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectFinishLine){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+
+            for (Object object: objectTrack){
+                object.setScene(malam);
+                for(Object objectChild: object.getChildObject()){
+                    objectChild.setScene(malam);
+                }
+            }
+            delay2 = true;
+        }
+
         if (window.isKeyPressed(GLFW_KEY_F) && !delay){
             modeToggle++;
             modeToggle = modeToggle % 3;
@@ -900,7 +956,12 @@ public class Main {
     public void loop() {
         while (window.isOpen()) {
             window.update();
-            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            if(malam){
+                glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            } else {
+                glClearColor(0.0f, 0.64453125f, 1.0f, 1.0f);
+            }
+
             GL.createCapabilities();
 
             input();
@@ -912,6 +973,15 @@ public class Main {
             if (delayCounter > 30){
                 delayCounter = 0;
                 delay = false;
+            }
+
+            if (delay2){
+                delayCounter2++;
+            }
+
+            if (delayCounter2 > 30){
+                delayCounter2 = 0;
+                delay2 = false;
             }
 
             if (start){
