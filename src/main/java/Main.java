@@ -623,7 +623,7 @@ public class Main {
                 ),
                 new ArrayList<>(),
                 new Vector4f(0.f,0.f,0.f,1.0f),
-                "resources/model/track/finish_line.obj"
+                "resources/model/track/finish_linee.obj"
         ));
         objectFinishLine.get(0).translateObject(-3.35f,1.449f,4.0f);
         objectFinishLine.get(0).scaleObject(0.5f,0.5f,0.5f);
