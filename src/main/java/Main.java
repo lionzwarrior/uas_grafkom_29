@@ -11,6 +11,9 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL20.GL_FRAGMENT_SHADER;
+import static org.lwjgl.opengl.GL20.GL_VERTEX_SHADER;
+import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
 import static org.lwjgl.opengl.GL30.*;
 
 public class Main {
@@ -612,7 +615,7 @@ public class Main {
         objectPagar.get(0).getChildObject().get(1).rotateObject((float)Math.toRadians(-128.0f),0.f,1.0f,0.f);
 
 
-        //finish line
+       //finish line
         objectFinishLine.add(new Model(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER),
@@ -622,8 +625,9 @@ public class Main {
                 new Vector4f(0.f,0.f,0.f,1.0f),
                 "resources/model/track/finish_line.obj"
         ));
-        objectFinishLine.get(0).translateObject(-2.5f,9.3f,9.5f);
-        objectFinishLine.get(0).scaleObject(0.1f,0.1f,0.1f);
+        objectFinishLine.get(0).translateObject(-3.35f,1.449f,4.0f);
+        objectFinishLine.get(0).scaleObject(0.5f,0.5f,0.5f);
+
     }
 
     public void input() {
