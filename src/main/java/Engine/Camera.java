@@ -85,4 +85,8 @@ public class Camera {
         rotation.set(x, y);
         recalculate();
     }
+
+    public Vector3f getDirection() {
+        return direction;
+    }
 }
