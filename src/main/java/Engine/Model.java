@@ -112,62 +112,15 @@ public class Model extends Object{
         glBufferData(GL_ARRAY_BUFFER,
                 Utils.listoFloat(normals),
                 GL_STATIC_DRAW);
-
-//        uniformsMap.createUniform("lightColor");
-//        uniformsMap.createUniform("lightPos");
     }
 
-    public void drawSetup(Camera camera, Projection projection){
-        super.drawSetup(camera,projection);
+    public void drawSetup(Camera camera, Projection projection) {
+        super.drawSetup(camera, projection);
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
         glVertexAttribPointer(1,
                 3, GL_FLOAT,
                 false,
                 0, 0);
-//        uniformsMap.setUniform("lightColor", new Vector3f(1f,1f,0f));
-//        uniformsMap.setUniform("lightPos", new Vector3f(1f,1f,0f));
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(0.2f,-1.0f,-0.f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f,0.05f));
-        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
-        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
-
-        //posisi pointlight
-        Vector3f[] _pointLightPositions = {
-                new Vector3f(0.7f,0.2f,2.0f),
-                new Vector3f(2.3f,-3.3f,-4.0f),
-                new Vector3f(-4.0f,2.0f,-12.0f),
-                new Vector3f(0.0f,0.0f,-3.0f)
-        };
-        for(int i = 0; i< _pointLightPositions.length; i++){
-            uniformsMap.setUniform("pointLight["+i+"].position", _pointLightPositions[i]);
-            uniformsMap.setUniform("pointLight["+i+"].ambient", new Vector3f(0.05f,0.05f,0.05f));
-            uniformsMap.setUniform("pointLight["+i+"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
-            uniformsMap.setUniform("pointLight["+i+"].specular", new Vector3f(1.0f,1.0f,1.0f));
-            uniformsMap.setUniform("pointLight["+i+"].constant", 1.0f);
-            uniformsMap.setUniform("pointLight["+i+"].linear", 0.09f);
-            uniformsMap.setUniform("pointLight["+i+"].quadratic", 0.032f);
-        }
-
-        uniformsMap.setUniform("viewPos", camera.getPosition());
     }
-
-//    public void draw(Camera camera, Projection projection){
-//        drawSetup(camera,projection);
-//        // Draw the vertices
-//        glLineWidth(10);
-//        glPointSize(10);
-//        //GL_TRIANGLES
-//        //GL_LINE_LOOP
-//        //GL_LINE_STRIP
-//        //GL_LINES
-//        //GL_POINTS
-//        //GL_TRIANGLE_FAN
-//        glDrawArrays(GL_LINE_STRIP, 0,
-//                vertices.size());
-//        for(Object child:childObject){
-//            child.draw(camera,projection);
-//        }
-//    }
-
 }
