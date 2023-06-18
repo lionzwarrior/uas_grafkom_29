@@ -707,37 +707,29 @@ public class Main {
             if (modeToggle == 2) {
                 camera.moveForward(move);
             } else if (modeToggle == 0) {
-                for(Object object: objectOuterWall){
-                    isColliding = checkCollision(objectObj.get(0), object);
-                    for(Object objectChild: object.getChildObject()){
-                        isColliding = checkCollision(objectObj.get(0), objectChild);
-                    }
-                }
-                if (!isColliding) {
-                    objectObj.get(0).translateObject(0f, 0f, -move);
-                    camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
-                    camera.moveBackwards(distance);
-                    if (angle > (float) Math.toRadians(0) && angle < (float) Math.toRadians(180)) {
-                        objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                        objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
-                        objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                        angle = angle - rotation;
-                    } else if (angle > (float) Math.toRadians(180) && angle < (float) Math.toRadians(360)) {
-                        objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                        objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
-                        objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                        angle = angle + rotation;
-                    } else if (angle > (float) Math.toRadians(-180) && angle < (float) Math.toRadians(0)) {
-                        objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                        objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
-                        objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                        angle = angle + rotation;
-                    } else if (angle > (float) Math.toRadians(-360) && angle < (float) Math.toRadians(-180)) {
-                        objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
-                        objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
-                        objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
-                        angle = angle - rotation;
-                    }
+                objectObj.get(0).translateObject(0f, 0f, -move);
+                camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+                camera.moveBackwards(distance);
+                if (angle > (float) Math.toRadians(0) && angle < (float) Math.toRadians(180)) {
+                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
+                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                    angle = angle - rotation;
+                } else if (angle > (float) Math.toRadians(180) && angle < (float) Math.toRadians(360)) {
+                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
+                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                    angle = angle + rotation;
+                } else if (angle > (float) Math.toRadians(-180) && angle < (float) Math.toRadians(0)) {
+                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(0).rotateObject(rotation, 0f, 1f, 0f);
+                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                    angle = angle + rotation;
+                } else if (angle > (float) Math.toRadians(-360) && angle < (float) Math.toRadians(-180)) {
+                    objectObj.get(0).translateObject(-temp.get(0), -temp.get(1), -temp.get(2));
+                    objectObj.get(0).rotateObject(-rotation, 0f, 1f, 0f);
+                    objectObj.get(0).translateObject(temp.get(0), temp.get(1), temp.get(2));
+                    angle = angle - rotation;
                 }
             }
         }
@@ -908,49 +900,6 @@ public class Main {
                 camera.moveDown(move);
             }
         }
-    }
-
-    public boolean checkCollision(Object box1, Object box2) {
-        // Get the position of box1
-        List<Float> obj_pos = box1.getPosition();
-        float x1 = obj_pos.get(0);
-        float y1 = obj_pos.get(1);
-        float z1 = obj_pos.get(2);
-
-        // Get the position of box2
-        List<Float> ground_pos = box2.getPosition();
-        float x2 = ground_pos.get(0);
-        float y2 = ground_pos.get(1);
-        float z2 = ground_pos.get(2);
-
-        // Calculate the boundaries of box1
-        float minX1 = x1 - box1.getWidth() / 2.0f;
-        float maxX1 = x1 + box1.getWidth() / 2.0f;
-        float minY1 = y1 - box1.getHeight() / 2.0f;
-        float maxY1 = y1 + box1.getHeight() / 2.0f;
-        float minZ1 = z1 - box1.getDepth() / 2.0f;
-        float maxZ1 = z1 + box1.getDepth() / 2.0f;
-
-        // Calculate the boundaries of box2
-        float minX2 = x2 - box2.getWidth() / 2.0f;
-        float maxX2 = x2 + box2.getWidth() / 2.0f;
-        float minY2 = y2 - box2.getHeight() / 2.0f;
-        float maxY2 = y2 + box2.getHeight() / 2.0f;
-        float minZ2 = z2 - box2.getDepth() / 2.0f;
-        float maxZ2 = z2 + box2.getDepth() / 2.0f;
-
-        // Check for collision along each axis
-        if (maxX1 < minX2 || minX1 > maxX2) {
-            return false; // No collision along X-axis
-        }
-        if (maxY1 < minY2 || minY1 > maxY2) {
-            return false; // No collision along Y-axis
-        }
-        if (maxZ1 < minZ2 || minZ1 > maxZ2) {
-            return false; // No collision along Z-axis
-        }
-
-        return true; // Colliding on all axes
     }
 
     public void loop() {
