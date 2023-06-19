@@ -41,6 +41,8 @@ public class Main {
     boolean malam = true;
     boolean delay2 = false;
     int delayCounter2 = 0;
+    boolean delay3 = false;
+    int delayCounter3 = 0;
 
 
     public void run() throws IOException {
@@ -635,7 +637,6 @@ public class Main {
     }
 
     public void input() {
-        boolean isColliding = false;
         temp = objectObj.get(0).getCenterPoint();
         angle = angle % (float) Math.toRadians(360);
 
@@ -900,6 +901,17 @@ public class Main {
                 camera.moveDown(move);
             }
         }
+
+        if (window.isKeyPressed(GLFW_KEY_1) && !delay3) { // look back
+
+            camera.setPosition(-temp.get(0), -temp.get(1), -temp.get(2));
+            camera.addRotation(0, (float) Math.toRadians(180f));
+            camera.setPosition(temp.get(0), temp.get(1), temp.get(2));
+            camera.moveBackwards(distance);
+
+            delay3 = true;
+        }
+        
     }
 
     public void loop() {
@@ -931,6 +943,15 @@ public class Main {
             if (delayCounter2 > 30){
                 delayCounter2 = 0;
                 delay2 = false;
+            }
+
+            if (delay3){
+                delayCounter3++;
+            }
+
+            if (delayCounter3 > 30){
+                delayCounter3 = 0;
+                delay3 = false;
             }
 
             if (start){

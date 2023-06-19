@@ -76,6 +76,7 @@ public class Model extends Object{
                         Vector3f TextureIndices = new Vector3f(Float.parseFloat(line.split(" ")[1].split("/")[1]),
                                 Float.parseFloat(line.split(" ")[2].split("/")[1]),
                                 Float.parseFloat(line.split(" ")[3].split("/")[1]));
+                        faces.add(new Face(vertexIndices, normalIndices));
                     }
                     faces.add(new Face(vertexIndices, normalIndices));
                 }
